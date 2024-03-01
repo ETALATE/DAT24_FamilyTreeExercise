@@ -7,7 +7,7 @@ public class FamilyTree {
     // Når et familietræ skabes, kalder den sin metode buildTree.
     // Kald metoden i konstruktøren.
     public FamilyTree() {
-
+        buildTree();
     }
 
     //*** METHODS ***//
@@ -15,17 +15,32 @@ public class FamilyTree {
     // Udfyld den nødvendige kode i buildTree og getCurrentName metode. De andre er udfyldt.
 
     public void buildTree() {
-    // Lav til at starte med tre person objekter: et som repræsenterer den person, som træet skal laves på baggrund, et til dens far og et til dens mor. Giv dem hver især variabel navne, som afspejler deres egentlig navn.
-    // Eksempel: Person hans = new Person("Hans");
+        // Lav til at starte med tre person objekter: et som repræsenterer den person, som træet skal laves på baggrund, et til dens far og et til dens mor. Giv dem hver især variabel navne, som afspejler deres egentlig navn.
+        // Eksempel: Person hans = new Person("Hans");
+        Person pia = new Person("Pia");
+        Person hans = new Person("Hans");
+        Person peter = new Person("Peter");
+        peter.setMother(pia);
+        peter.setFather(hans);
 
-    // Lav derefter to nye person objekter, der repræsenterer morens mor og fra
+        // Lav derefter to nye person objekter, der repræsenterer morens mor og fra
+        Person olga = new Person("Olga");
+        Person mogens = new Person("Mogens");
+        pia.setMother(olga);
+        pia.setFather(mogens);
 
-    // Lav derefter to nye person objekter, der repræsenterer farens mor og fra
+        // Lav derefter to nye person objekter, der repræsenterer farens mor og fra
+        Person åse = new Person("Åse");
+        Person søren = new Person("Søren");
+        hans.setFather(søren);
+        hans.setMother(åse);
 
-    // Sidst så tilskriv den pågældendes person, som repræsenterer den person træet skal laves på baggrund af, til variablen current.
-
+        // Sidst så tilskriv den pågældendes person, som repræsenterer den person træet skal laves på baggrund af, til variablen current.
+        current = peter;
     }
+
     public String getCurrentName() {
+        return current.getName();
 
     }
 
@@ -40,8 +55,7 @@ public class FamilyTree {
     public void moveToAncestor(String ancestor) {
         if (ancestor.equals("mother")) {
             current = current.getMother();
-        }
-        else {
+        } else {
             current = current.getFather();
         }
     }
