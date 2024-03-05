@@ -7,6 +7,5 @@ public class Main {
         System.out.println("En person: " + myFamilyTree.getCurrentName());
         System.out.println("Personens mor: " + myFamilyTree.lookUpParentName("mother"));
         myFamilyTree.moveToAncestor("mother");
-;
     }
 }
